@@ -17,16 +17,26 @@ public class Employee {
     @ManyToOne//(targetEntity = Department.class)
     private Department department;
 
+    private Long salary;
+
     @OneToMany(mappedBy = "employee")
     private List<Phone> phones;
 
     public Employee() {
     }
 
-    public Employee(String name, int age, Department department, List<Phone> phones) {
+/*    public Employee(String name, int age, Department department, List<Phone> phones) {
         this.name = name;
         this.age = age;
         this.department = department;
+        this.phones = phones;
+    }*/
+
+    public Employee(String name, int age, Department department, Long salary, List<Phone> phones) {
+        this.name = name;
+        this.age = age;
+        this.department = department;
+        this.salary = salary;
         this.phones = phones;
     }
 
@@ -70,6 +80,25 @@ public class Employee {
         this.phones = phones;
     }
 
+    public Long getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Long salary) {
+        this.salary = salary;
+    }
+
+/*    @Override
+    public String toString() {
+        return "Employee{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", department=" + department +
+                ", phones=" + phones +
+                '}';
+    }*/
+
     @Override
     public String toString() {
         return "Employee{" +
@@ -77,6 +106,7 @@ public class Employee {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", department=" + department +
+                ", salary=" + salary +
                 ", phones=" + phones +
                 '}';
     }

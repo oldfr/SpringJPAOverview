@@ -14,4 +14,7 @@ public interface EmployeeRepo extends JpaRepository<Employee,Integer> {
 
     @Query(value = "select top 1 * from Employee e order by age desc",nativeQuery = true)
     public Employee findEmployeeByAge();
+
+    @Query(value = "select e.salary from Employee e JOIN e.department d where d.id =?1 order by salary desc ")
+    public List<Long> findTopSalaryOfEmployeeByDepartment(Long id);
 }

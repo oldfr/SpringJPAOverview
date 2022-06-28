@@ -40,14 +40,14 @@ public class ProcessJoins {
 
 
         Department department1 = new Department("IT");
-        Employee emp1 = new Employee("Ankitha",27,department1,phoneNumOfEmp1);
-        Employee emp2 = new Employee("Adithya",25,department1,phoneNumOfEmp2);
-        Employee emp3 = new Employee("Ramanna",37,department1,phoneNumOfEmp3);
+        Employee emp1 = new Employee("Ankitha",27,department1,100L,phoneNumOfEmp1);
+        Employee emp2 = new Employee("Adithya",25,department1,800L,phoneNumOfEmp2);
+        Employee emp3 = new Employee("Ramanna",37,department1,900L,phoneNumOfEmp3);
 
         Department department2 = new Department("HR");
-        Employee emp21 = new Employee("Vinay",27,department2,phoneNumOfEmp1);
-        Employee emp22 = new Employee("Vidhya",25,department2,phoneNumOfEmp2);
-        Employee emp23 = new Employee("Archana",37,department2,phoneNumOfEmp3);
+        Employee emp21 = new Employee("Vinay",27,department2,1000L,phoneNumOfEmp1);
+        Employee emp22 = new Employee("Vidhya",25,department2,1200L,phoneNumOfEmp2);
+        Employee emp23 = new Employee("Archana",37,department2,400L,phoneNumOfEmp3);
 
         departmentRepo.save(department1);
         departmentRepo.save(department2);
@@ -82,6 +82,10 @@ public class ProcessJoins {
         // get all phones number of Employee
         List<Phone> phones = phoneRepo.findAllPhonesByEmployee(3L);
         System.out.println("Phone numbers of employee 3:"+phones);
+
+        // Employee with highest salary
+        List<Long> employee2 = employeeRepo.findTopSalaryOfEmployeeByDepartment(1L);
+        System.out.println("Employee with highest salary in Department1:"+employee2.get(0));
 
     }
 
