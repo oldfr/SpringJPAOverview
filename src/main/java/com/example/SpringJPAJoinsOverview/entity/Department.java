@@ -8,7 +8,7 @@ public class Department {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private long dept_id;
 
     private String name;
 
@@ -22,12 +22,12 @@ public class Department {
         this.name = name;
     }
 
-    public long getId() {
-        return id;
+    public long getDept_id() {
+        return dept_id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setDept_id(long dept_id) {
+        this.dept_id = dept_id;
     }
 
     public String getName() {
@@ -49,7 +49,7 @@ public class Department {
     @Override
     public String toString() {
         return "Department{" +
-                "id=" + id +
+                "id=" + dept_id +
                 ", name='" + name + '\'' +
                 ", employees=" + employees +
                 '}';

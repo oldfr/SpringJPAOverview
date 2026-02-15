@@ -8,7 +8,7 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long emp_id;
 
     private String name;
 
@@ -20,6 +20,7 @@ public class Employee {
     private Long salary;
 
     @OneToMany(mappedBy = "employee")
+//    @JoinColumn(name = "phone_id") // throws error
     private List<Phone> phones;
 
     public Employee() {
@@ -40,12 +41,12 @@ public class Employee {
         this.phones = phones;
     }
 
-    public long getId() {
-        return id;
+    public long getEmp_id() {
+        return emp_id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setEmp_id(long emp_id) {
+        this.emp_id = emp_id;
     }
 
     public String getName() {
@@ -102,7 +103,7 @@ public class Employee {
     @Override
     public String toString() {
         return "Employee{" +
-                "id=" + id +
+                "id=" + emp_id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", department=" + department +

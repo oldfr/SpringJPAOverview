@@ -7,11 +7,12 @@ public class Phone {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long phone_id;
 
     private String number;
 
     @ManyToOne//(targetEntity = Phone.class)
+//    @JoinColumn(name = "phone_id", insertable = false, updatable = false) // throws error
     private Employee employee;
 
     public Phone() {
@@ -21,12 +22,12 @@ public class Phone {
         this.number = number;
     }
 
-    public long getId() {
-        return id;
+    public long getPhone_id() {
+        return phone_id;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setPhone_id(long phone_id) {
+        this.phone_id = phone_id;
     }
 
     public String getNumber() {
@@ -48,7 +49,7 @@ public class Phone {
     @Override
     public String toString() {
         return "Phone{" +
-                "id=" + id +
+                "id=" + phone_id +
                 ", number='" + number + '\'' +
                 '}';
     }
