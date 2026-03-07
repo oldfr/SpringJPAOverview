@@ -6,6 +6,7 @@ import com.example.SpringJPAJoinsOverview.entity.EmployeeAndDepartment;
 import com.example.SpringJPAJoinsOverview.entity.Phone;
 import com.example.SpringJPAJoinsOverview.jpaRepo.DepartmentRepo;
 //import com.example.SpringJPAJoinsOverview.jpaRepo.EmploeeAndDepartmentRepo;
+import com.example.SpringJPAJoinsOverview.jpaRepo.EmployeeAndDepartmentRepo;
 import com.example.SpringJPAJoinsOverview.jpaRepo.EmployeeRepo;
 import com.example.SpringJPAJoinsOverview.jpaRepo.PhoneRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -99,9 +100,20 @@ public class ProcessJoins {
         Sort sort = Sort.by(Sort.Direction.ASC,"name");
         List<Employee> first3ByName = employeeRepo.findFirst3ByName("Joey",sort);
         System.out.println("first 3 employees with same name when sorted in ascending order :"+first3ByName);
-/*
-        List<EmployeeAndDepartment> employeeAndDept = employeeRepo.findAllEmployeeAndDepartment();
-        System.out.prinval:tln("employeeAndDept: "+employeeAndDept);*/
+
+        List<EmployeeAndDepartmentRepo> employeeAndDept = employeeRepo.findAllEmployeeAndDepartment();
+        employeeAndDept
+                .forEach(e ->
+                        System.out.println(
+                                e.getEmpId() + " | " +
+                                e.getAge() + " | " +
+                                e.getSalary() + " | " +
+                                e.getEmpName() + " | " +
+                                e.getDeptName() + " | " +
+                                e.getEmpDeptID() + " | " +
+                                e.getDeptDeptID()
+                        )
+                );
 
     }
 

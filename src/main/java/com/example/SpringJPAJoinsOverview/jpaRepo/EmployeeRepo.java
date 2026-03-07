@@ -24,8 +24,9 @@ public interface EmployeeRepo extends JpaRepository<Employee,Integer> {
 
     List<Employee> findFirst3ByName(String name, Sort sort);
 
-    // not working
-/*    @Query(value = "select e.emp_id, e.age, e.name as EName, e.salary, d.Name as DeptName, d.dept_id, e.department_dept_id" +
-            " from Employee e join Department d on d.dept_id = e.department_dept_id", nativeQuery = true)
-    public List<EmployeeAndDepartment> findAllEmployeeAndDepartment();*/
+    // Note: Here alias is important. Each are corresponding to field names in EmployeeAndDepartmentRepo interface. Changing will result in null values in result
+    @Query(value = "select e.emp_id as empId, e.age, e.name as empName, e.salary, d.name as DeptName, d.dept_id as empDeptID, e.department_dept_id as deptDeptID" +
+            " from Employee e inner join Department d on d.dept_id = e.department_dept_id", nativeQuery = true)
+    public List<EmployeeAndDepartmentRepo> findAllEmployeeAndDepartment();
+
 }
