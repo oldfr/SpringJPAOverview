@@ -2,7 +2,6 @@ package com.example.SpringJPAJoinsOverview.service;
 
 import com.example.SpringJPAJoinsOverview.entity.Department;
 import com.example.SpringJPAJoinsOverview.entity.Employee;
-import com.example.SpringJPAJoinsOverview.entity.EmployeeAndDepartment;
 import com.example.SpringJPAJoinsOverview.entity.Phone;
 import com.example.SpringJPAJoinsOverview.jpaRepo.DepartmentRepo;
 //import com.example.SpringJPAJoinsOverview.jpaRepo.EmploeeAndDepartmentRepo;
@@ -84,9 +83,16 @@ public class ProcessJoins {
         Department department = departmentRepo.findAllEmployeesByDepartment(1L);
         System.out.println("Department of employee 1:"+department);
 
+
+
         // get aged person in a department
-        Employee employee1 = employeeRepo.findEmployeeByAge();
+        Employee employee1 = employeeRepo.findOlderEmployeeByAge();
         System.out.println("Older employee:"+employee1);
+
+        // get employee by name
+        Employee empAnkitha = employeeRepo.findEmployeeByName("Ankitha");
+        System.out.println("Fetched employee:"+empAnkitha.getName());
+
 
         // get all phones number of Employee
         List<Phone> phones = phoneRepo.findAllPhonesByEmployee(3L);
