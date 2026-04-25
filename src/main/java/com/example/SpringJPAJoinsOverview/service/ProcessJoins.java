@@ -32,9 +32,6 @@ public class ProcessJoins {
         this.phoneRepo = phoneRepo;
 
     }
-/*
-    @Autowired
-    private EmploeeAndDepartmentRepo emploeeAndDepartmentRepo;*/
 
     public void loadDataInTables() {
         Phone ph1 = new Phone("1256624789");
@@ -55,9 +52,7 @@ public class ProcessJoins {
         Employee emp3 = new Employee("Ramanna",37,department1,900L,phoneNumOfEmp3);
 
         Department department2 = new Department("HR");
-//        Employee emp21 = new Employee("Vinay",27,department2,1000L,phoneNumOfEmp1);
         Employee emp21 = new Employee("Joey",27,department2,1000L,phoneNumOfEmp1);
-//        Employee emp22 = new Employee("Vidhya",25,department2,1200L,phoneNumOfEmp2);
         Employee emp22 = new Employee("Joey",25,department2,1200L,phoneNumOfEmp2);
         Employee emp23 = new Employee("Archana",37,department2,400L,phoneNumOfEmp3);
 

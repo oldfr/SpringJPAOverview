@@ -1,6 +1,5 @@
 package com.example.SpringJPAJoinsOverview.jpaRepo;
 
-import com.example.SpringJPAJoinsOverview.entity.Employee;
 import com.example.SpringJPAJoinsOverview.entity.Phone;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

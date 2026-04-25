@@ -14,24 +14,16 @@ public class Employee {
 
     private int age;
 
-    @ManyToOne//(targetEntity = Department.class)
+    @ManyToOne
     private Department department;
 
     private Long salary;
 
     @OneToMany(mappedBy = "employee")
-//    @JoinColumn(name = "phone_id") // throws error
     private List<Phone> phones;
 
     public Employee() {
     }
-
-/*    public Employee(String name, int age, Department department, List<Phone> phones) {
-        this.name = name;
-        this.age = age;
-        this.department = department;
-        this.phones = phones;
-    }*/
 
     public Employee(String name, int age, Department department, Long salary, List<Phone> phones) {
         this.name = name;
@@ -89,16 +81,6 @@ public class Employee {
         this.salary = salary;
     }
 
-/*    @Override
-    public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", department=" + department +
-                ", phones=" + phones +
-                '}';
-    }*/
 
     @Override
     public String toString() {

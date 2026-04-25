@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface DepartmentRepo extends JpaRepository<Department,Integer> {
 
     @Query("select d from Department d join d.employees e where e.id = ?1")
-    public Department findAllEmployeesByDepartment(Long id);
+    Department findAllEmployeesByDepartment(Long id);
 
 
 }

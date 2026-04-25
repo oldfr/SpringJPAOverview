@@ -11,8 +11,7 @@ public class Phone {
 
     private String number;
 
-    @ManyToOne//(targetEntity = Phone.class)
-//    @JoinColumn(name = "phone_id", insertable = false, updatable = false) // throws error
+    @ManyToOne
     private Employee employee;
 
     public Phone() {
