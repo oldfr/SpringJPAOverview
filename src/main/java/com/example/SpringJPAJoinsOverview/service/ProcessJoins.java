@@ -20,14 +20,18 @@ import java.util.List;
 @Transactional
 public class ProcessJoins {
 
-    @Autowired
-    private EmployeeRepo employeeRepo;
+    private final EmployeeRepo employeeRepo;
 
-    @Autowired
-    private DepartmentRepo departmentRepo;
+    private final DepartmentRepo departmentRepo;
 
-    @Autowired
-    private PhoneRepo phoneRepo;
+    private final PhoneRepo phoneRepo;
+
+    public ProcessJoins(EmployeeRepo employeeRepo, DepartmentRepo departmentRepo, PhoneRepo phoneRepo) {
+        this.employeeRepo = employeeRepo;
+        this.departmentRepo = departmentRepo;
+        this.phoneRepo = phoneRepo;
+
+    }
 /*
     @Autowired
     private EmploeeAndDepartmentRepo emploeeAndDepartmentRepo;*/
@@ -90,8 +94,8 @@ public class ProcessJoins {
         System.out.println("Older employee:"+employee1);
 
         // get employee by name
-        Employee empAnkitha = employeeRepo.findEmployeeByName("Ankitha");
-        System.out.println("Fetched employee:"+empAnkitha.getName());
+        Employee empDetail = employeeRepo.findEmployeeByName("Ankitha");
+        System.out.println("Fetched employee:"+empDetail.getName());
 
 
         // get all phones number of Employee
