@@ -49,7 +49,7 @@ public class ProcessJoins {
         System.out.println("Older employee:"+employee1);
 
         // get employee by name
-        /*Employee empDetail = employeeRepo.findByName("Ram");
+        Employee empDetail = employeeRepo.findByName("Ram");
         System.out.println("Fetched employee:"+empDetail.getName());
 
 
@@ -58,7 +58,7 @@ public class ProcessJoins {
         System.out.println("Phone numbers of employee 3:"+phones);
 
         // Employee with highest salary
-        List<Long> employee2 = employeeRepo.findTopSalaryOfEmployeeByDepartment(1L);
+        List<Long> employee2 = employeeRepo.findTopSalaryOfEmployeeByDepartment(1);
         System.out.println("Employee with highest salary in Department1:"+employee2.get(0));
 
         // get first 3 employee with same name when sorted by name
@@ -79,51 +79,7 @@ public class ProcessJoins {
                                 e.getDeptDeptID()
                         )
                 );
-*/
     }
-/*
 
-    private void loadDataInTables() {
-        Phone ph1 = new Phone("1256624789");
-        Phone ph2 = new Phone("1256624789");
-        Phone ph3 = new Phone("1256624789");
-        Phone ph4 = new Phone("1256624789");
-        Phone ph5 = new Phone("1256624789");
-        Phone ph6 = new Phone("1256624789");
-
-        List<Phone> phoneNumOfEmp1 = Arrays.asList(ph1,ph2);
-        List<Phone> phoneNumOfEmp2 = Arrays.asList(ph3,ph4);
-        List<Phone> phoneNumOfEmp3 = Arrays.asList(ph5,ph6);
-
-
-        Department department1 = new Department("IT");
-        Employee emp1 = new Employee("Chandler",27,department1,100L,phoneNumOfEmp1);
-        Employee emp2 = new Employee("Ross",25,department1,800L,phoneNumOfEmp2);
-        Employee emp3 = new Employee("Phoebe",37,department1,900L,phoneNumOfEmp3);
-
-        Department department2 = new Department("HR");
-        Employee emp21 = new Employee("Joey",27,department2,1000L,phoneNumOfEmp1);
-        Employee emp22 = new Employee("Joey",25,department2,1200L,phoneNumOfEmp2);
-        Employee emp23 = new Employee("Monica",37,department2,400L,phoneNumOfEmp3);
-
-        departmentRepo.save(department1);
-        departmentRepo.save(department2);
-
-        List<Employee> employees1 = Arrays.asList(emp1,emp2,emp3);
-        List<Employee> employees2 = Arrays.asList(emp21,emp22,emp23);
-
-        employeeRepo.saveAll(employees1);
-        employeeRepo.saveAll(employees2);
-
-        ph1.setEmployee(emp1);
-        ph2.setEmployee(emp1);
-        ph3.setEmployee(emp2);
-        ph4.setEmployee(emp2);
-        ph5.setEmployee(emp3);
-        ph6.setEmployee(emp3);
-
-        phoneRepo.saveAll(Arrays.asList(ph1,ph2,ph3,ph4,ph5,ph6));
-    }
-*/
 
 }
