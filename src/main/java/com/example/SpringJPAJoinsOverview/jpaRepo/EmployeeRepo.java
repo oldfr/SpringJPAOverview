@@ -23,8 +23,7 @@ public interface EmployeeRepo extends JpaRepository<Employee, Integer> {
 
 
     // Highest salary in department
-    @Query("SELECT e.salary FROM Employee e WHERE e.department.deptId = ?1 ORDER BY e.salary DESC")
-    List<Long> findTopSalaryOfEmployeeByDepartment(Integer deptId);
+    List<Employee> findTopByDepartmentDeptIdOrderBySalaryDesc(Integer deptId);
 
 
     // First 3 employees having same name

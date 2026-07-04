@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Component
@@ -52,12 +51,12 @@ public class ProcessJoins {
 
 
         // get all phones number of Employee
-        List<Phone> phones = phoneRepo.findAllPhonesByEmployee(3);
-        System.out.println("Phone numbers of employee 3:"+phones);
+        Phone empPhone = phoneRepo.findAllPhoneByEmployee(3);
+        System.out.println("Phone number of employee 3:"+empPhone.getNumber());
 
         // Employee with highest salary
-        List<Long> employee2 = employeeRepo.findTopSalaryOfEmployeeByDepartment(1);
-        System.out.println("Employee with highest salary in Department1:"+employee2.get(0));
+        List<Employee> employee2 = employeeRepo.findTopByDepartmentDeptIdOrderBySalaryDesc(1);
+        System.out.println("Employee with highest salary in Department 1:"+employee2.get(0));
 
         // get first 3 employee with same name when sorted by name
         Sort sort = Sort.by(Sort.Direction.ASC,"name");
