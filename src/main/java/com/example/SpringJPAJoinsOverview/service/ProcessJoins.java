@@ -34,8 +34,6 @@ public class ProcessJoins {
 
     public void processData() {
 
-//        loadDataInTables();
-
         // find all employees in a department
         List<Employee> employee = employeeRepo.findAllEmployeesByDepartmentId(1);
         System.out.println("All employees in department 1:"+employee);
