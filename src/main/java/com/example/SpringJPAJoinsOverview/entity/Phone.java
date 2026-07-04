@@ -1,32 +1,33 @@
 package com.example.SpringJPAJoinsOverview.entity;
+//import jakarta.persistence.*;
 
 import javax.persistence.*;
 
 @Entity
+@Table(name = "PHONE")
 public class Phone {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long phone_id;
+    @Column(name = "phone_id")
+    private Integer phoneId;
 
+    @Column(name = "number", nullable = false)
     private String number;
-
-    @ManyToOne
-    private Employee employee;
 
     public Phone() {
     }
 
-    public Phone(String number) {
+    public Phone(Integer phoneId, String number) {
+        this.phoneId = phoneId;
         this.number = number;
     }
 
-    public long getPhone_id() {
-        return phone_id;
+    public Integer getPhoneId() {
+        return phoneId;
     }
 
-    public void setPhone_id(long phone_id) {
-        this.phone_id = phone_id;
+    public void setPhoneId(Integer phoneId) {
+        this.phoneId = phoneId;
     }
 
     public String getNumber() {
@@ -37,18 +38,10 @@ public class Phone {
         this.number = number;
     }
 
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-
     @Override
     public String toString() {
         return "Phone{" +
-                "id=" + phone_id +
+                "phoneId=" + phoneId +
                 ", number='" + number + '\'' +
                 '}';
     }

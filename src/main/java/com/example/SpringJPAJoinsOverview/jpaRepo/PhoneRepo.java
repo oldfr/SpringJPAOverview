@@ -6,8 +6,9 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 
-public interface PhoneRepo extends JpaRepository<Phone,Integer> {
+public interface PhoneRepo extends JpaRepository<Phone, Integer> {
 
-    @Query(value = "select p from Employee e join e.phones p where e.id =?1")
-    public List<Phone> findAllPhonesByEmployee(Long id);
+    @Query("SELECT e.phone  FROM Employee e   WHERE e.empId = ?1")
+    List<Phone> findAllPhonesByEmployee(Integer empId);
+
 }

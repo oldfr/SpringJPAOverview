@@ -1,15 +1,16 @@
 package com.example.SpringJPAJoinsOverview.entity;
-
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "DEPARTMENT")
 public class Department {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long dept_id;
+    @Column(name = "dept_id")
+    private Integer deptId;
 
+    @Column(name = "name", nullable = false)
     private String name;
 
     @OneToMany(mappedBy = "department")
@@ -18,16 +19,17 @@ public class Department {
     public Department() {
     }
 
-    public Department(String name) {
+    public Department(Integer deptId, String name) {
+        this.deptId = deptId;
         this.name = name;
     }
 
-    public long getDept_id() {
-        return dept_id;
+    public Integer getDeptId() {
+        return deptId;
     }
 
-    public void setDept_id(long dept_id) {
-        this.dept_id = dept_id;
+    public void setDeptId(Integer deptId) {
+        this.deptId = deptId;
     }
 
     public String getName() {
@@ -49,7 +51,7 @@ public class Department {
     @Override
     public String toString() {
         return "Department{" +
-                "id=" + dept_id +
+                "deptId=" + deptId +
                 ", name='" + name + '\'' +
                 ", employees=" + employees +
                 '}';
