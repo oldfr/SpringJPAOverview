@@ -1,44 +1,57 @@
 package com.example.SpringJPAJoinsOverview.entity;
-
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
+@Table(name = "EMPLOYEE")
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long emp_id;
+    @Column(name = "emp_id")
+    private Integer empId;
 
+    @Column(name = "name", nullable = false)
     private String name;
 
-    private int age;
+    @Column(name = "age", nullable = false)
+    private String age;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "department")
     private Department department;
 
-    private Long salary;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "phone_id")
+    private Phone phone;
 
-    @OneToMany(mappedBy = "employee")
-    private List<Phone> phones;
+    @Column(name = "salary")
+    private Long salary;
 
     public Employee() {
     }
 
-    public Employee(String name, int age, Department department, Long salary, List<Phone> phones) {
+    public Employee(Integer empId, String name,
+                    Department department, Long salary, Phone phone) {
+        this.empId = empId;
         this.name = name;
-        this.age = age;
         this.department = department;
         this.salary = salary;
-        this.phones = phones;
+        this.phone = phone;
     }
 
-    public long getEmp_id() {
-        return emp_id;
+    public Integer getEmpId() {
+        return empId;
     }
 
-    public void setEmp_id(long emp_id) {
-        this.emp_id = emp_id;
+    public void setEmpId(Integer empId) {
+        this.empId = empId;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
     }
 
     public String getName() {
@@ -49,28 +62,12 @@ public class Employee {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public Department getDepartment() {
         return department;
     }
 
     public void setDepartment(Department department) {
         this.department = department;
-    }
-
-    public List<Phone> getPhones() {
-        return phones;
-    }
-
-    public void setPhones(List<Phone> phones) {
-        this.phones = phones;
     }
 
     public Long getSalary() {
@@ -81,16 +78,23 @@ public class Employee {
         this.salary = salary;
     }
 
+    public Phone getPhone() {
+        return phone;
+    }
+
+    public void setPhone(Phone phone) {
+        this.phone = phone;
+    }
 
     @Override
     public String toString() {
         return "Employee{" +
-                "id=" + emp_id +
+                "empId=" + empId +
                 ", name='" + name + '\'' +
-                ", age=" + age +
-                ", department=" + department +
+                ", age='" + age + '\'' +
+                ", department=" + department.getDeptId()+
+                ", phone=" + phone.getNumber() +
                 ", salary=" + salary +
-                ", phones=" + phones +
                 '}';
     }
 }

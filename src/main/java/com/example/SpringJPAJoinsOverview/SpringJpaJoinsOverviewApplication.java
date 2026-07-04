@@ -11,7 +11,7 @@ public class SpringJpaJoinsOverviewApplication {
 	public static void main(String[] args) {
 		ApplicationContext applicationContext = SpringApplication.run(SpringJpaJoinsOverviewApplication.class, args);
 		ProcessJoins processJoins = applicationContext.getBean(ProcessJoins.class);
-		processJoins.loadDataInTables();
+		processJoins.processData();
 	}
 
 }
