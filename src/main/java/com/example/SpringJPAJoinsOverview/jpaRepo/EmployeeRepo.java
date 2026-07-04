@@ -14,18 +14,16 @@ public interface EmployeeRepo extends JpaRepository<Employee, Integer> {
     List<Employee> findAllEmployeesByDepartmentId(Integer deptId);
 
 
-    // Oldest employee
+    // Oldest employee - query derived from method name
     Employee findTopByOrderByAgeDesc();
 
-
-    // Employee by name
+    // Employee by name - query derived from method name
     Employee findByName(String name);
 
-
-    // Highest salary in department
+    // Highest salary in department - query derived from method name
     List<Employee> findTopByDepartmentDeptIdOrderBySalaryDesc(Integer deptId);
 
-    // First 3 employees having same name
+    // First 3 employees having same name - query derived from method name
     List<Employee> findFirst3ByName(String name, Sort sort);
 
 
