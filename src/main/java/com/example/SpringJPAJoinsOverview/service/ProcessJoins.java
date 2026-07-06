@@ -49,7 +49,6 @@ public class ProcessJoins {
         Employee empDetail = employeeRepo.findByName("Ram");
         System.out.println("Fetched employee:"+empDetail.getName());
 
-
         // get all phones number of Employee
         Phone empPhone = phoneRepo.findAllPhoneByEmployee(3);
         System.out.println("Phone number of employee 3:"+empPhone.getNumber());
@@ -63,6 +62,7 @@ public class ProcessJoins {
         List<Employee> first3ByName = employeeRepo.findFirst3ByName("Joey",sort);
         System.out.println("first 3 employees with same name when sorted in ascending order :"+first3ByName);
 
+        // To fetch employees and their department details
         List<EmployeeAndDepartmentRepo> employeeAndDept = employeeRepo.findAllEmployeeAndDepartment();
         employeeAndDept
                 .forEach(e ->
@@ -77,6 +77,4 @@ public class ProcessJoins {
                         )
                 );
     }
-
-
 }
