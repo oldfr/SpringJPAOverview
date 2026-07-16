@@ -1,7 +1,7 @@
 package com.example.SpringJPAJoinsOverview.jpaRepo;
 
-
-public interface EmployeeAndDepartmentRepo {
+// represents the view of the query result when employee and their department details are fetched
+public interface EmployeeAndDepartmentProjection {
     Long getEmpId();
     Integer getAge();
     Integer getSalary();
@@ -9,6 +9,4 @@ public interface EmployeeAndDepartmentRepo {
     String getDeptName();
     Integer getEmpDeptID();
     Integer getDeptDeptID();
-
-
 }

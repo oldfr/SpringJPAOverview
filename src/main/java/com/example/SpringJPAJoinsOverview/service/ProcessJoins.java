@@ -4,7 +4,7 @@ import com.example.SpringJPAJoinsOverview.entity.Department;
 import com.example.SpringJPAJoinsOverview.entity.Employee;
 import com.example.SpringJPAJoinsOverview.entity.Phone;
 import com.example.SpringJPAJoinsOverview.jpaRepo.DepartmentRepo;
-import com.example.SpringJPAJoinsOverview.jpaRepo.EmployeeAndDepartmentRepo;
+import com.example.SpringJPAJoinsOverview.jpaRepo.EmployeeAndDepartmentProjection;
 import com.example.SpringJPAJoinsOverview.jpaRepo.EmployeeRepo;
 import com.example.SpringJPAJoinsOverview.jpaRepo.PhoneRepo;
 import org.springframework.data.domain.Sort;
@@ -63,7 +63,7 @@ public class ProcessJoins {
         System.out.println("first 3 employees with same name when sorted in ascending order :"+first3ByName);
 
         // To fetch employees and their department details
-        List<EmployeeAndDepartmentRepo> employeeAndDept = employeeRepo.findAllEmployeeAndDepartment();
+        List<EmployeeAndDepartmentProjection> employeeAndDept = employeeRepo.findAllEmployeeAndDepartment();
         employeeAndDept
                 .forEach(e ->
                         System.out.println(
